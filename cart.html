@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wearly</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-DQvkBjpPgn7RC31MCQoOeC9TI2kdqa4+BSgNMNj8v77fdC77Kj5zpWFTJaaAoMbC"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YUe2LzesAfftltw+PEaao2tjU/QATaW/rOitAq67e0CT0Zi2VVRL0oC4+gAaeBKu"
+      crossorigin="anonymous"
+    ></script>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+    />
+    <!-- Bootstrap Icons -->
+    <style>
+      .navbar {
+        display: flex;
+        width: 90%;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        background-color: transparent;
+        border: 0;
+      }
+      .navbar .search {
+        display: flex;
+        min-width: 300px; /* Set a minimum width */
+        max-width: 100px; /* Set a maximum width */
+      }
+      /* Apply scale effect on hover */
+      img:hover {
+        transform: scale(1.09);
+        transition: transform 0.3s ease; /* Smooth transition */
+      }
+      body {
+        background-image: url('./photos/kids/a42892d4af7a7d3d7073f2e43cb15c9d.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        position: relative;
+      }
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(
+          255,
+          255,
+          255,
+          0.6
+        ); /* or rgba(0, 0, 0, 0.4) for darker overlay */
+        z-index: -1; /* Keep it behind everything */
+      }
+      .card {
+        background-color: rgba(255, 255, 255, 0.058); /* or 0.6 */
+        backdrop-filter: blur(5px); /* optional glass effect */
+        }
+    </style>
+  </head>
+  <body>
+    <!-- Navbar -->
+    <div class="navbar">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+          <!-- Logo and Brand Name -->
+          <a class="navbar-brand d-flex align-items-center" href="index.html">
+            <img
+              src="./photos/home photos/image.png"
+              alt="Wearly Logo"
+              height="100"
+              class="rounded-circle me-2"
+            />
+            <span class="fs-4">Wearly</span>
+          </a>
+          <!-- Navbar Toggler for Mobile -->
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <!-- Navbar Links -->
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="men.html">Men</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="women.html">Women</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="kids.html">Kids & Baby</a>
+              </li>
+              <!-- Dropdown for More Categories -->
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  role="button"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  Categories
+                </a>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="#">Accessories</a></li>
+                  <li><a class="dropdown-item" href="#">New Arrivals</a></li>
+                  <li><hr class="dropdown-divider" /></li>
+                  <li><a class="dropdown-item" href="#">Sale</a></li>
+                </ul>
+              </li>
+            </ul>
+            <!-- Search Bar, Cart & Login -->
+            <div class="d-flex align-items-center ms-auto">
+              <!-- Search Bar -->
+              <form class="d-flex me-3 search" role="search">
+                <input
+                  class="form-control me-2"
+                  type="search"
+                  placeholder="Search"
+                  aria-label="Search"
+                />
+              </form>
+              <!-- Login (Icon + Button) -->
+              <a
+                href="login.html"
+                class="d-flex align-items-center text-dark text-decoration-none"
+              >
+                <i class="bi bi-person fs-4 me-2"></i>
+                <span class="btn btn-transparent">Login</span>
+              </a>
+              <!-- Wishlist Icon -->
+              <a href="wishlist.html" class="me-3 text-dark">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="currentColor"
+                  class="bi bi-heart"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"
+                  />
+                </svg>
+              </a>
+              <!-- Shopping Bag Icon -->
+              <a href="cart.html" class="me-3 text-dark">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  fill="currentColor"
+                  class="bi bi-bag"
+                  viewBox="0 0 16 16"
+                >
+                  <path
+                    d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"
+                  />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+    <div class="row g-5">
+      <div class="col-md-5 col-lg-3 order-md-last">
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+          <span class="text-primary">Your cart</span>
+          <span class="badge bg-primary rounded-pill">3</span>
+        </h4>
+        <ul class="list-group mb-3">
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">NFL GIANTS HOODIE</h6>
+            </div>
+            <span class="text-body-secondary"> 3,290 EGP</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">NFL BILLS HOODIE</h6>
+            </div>
+            <span class="text-body-secondary"> 2,290 EGP</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <h6 class="my-0">HARVARD UNIVERSITY SWEATSHIRT</h6>
+            </div>
+            <span class="text-body-secondary"> 3,000 EGP</span>
+          </li>
+          <li
+            class="list-group-item d-flex justify-content-between bg-body-tertiary"
+          >
+            <div class="text-success">
+              <h6 class="my-0">Promo code</h6>
+              <small>EXAMPLECODE</small>
+            </div>
+            <span class="text-success">−1,000 EGP</span>
+          </li>
+          <li class="list-group-item d-flex justify-content-between">
+            <span>Total (EGP)</span>
+            <strong>7,580</strong>
+          </li>
+        </ul>
+
+        <form class="card p-2">
+          <div class="input-group">
+            <input type="text" class="form-control" placeholder="Promo code" />
+            <button type="submit" class="btn btn-secondary">Redeem</button>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-7 col-lg-8 mx-5">
+        <h4 class="mb-3">Billing address</h4>
+        <form class="needs-validation" novalidate="">
+          <div class="row g-3">
+            <div class="col-sm-6">
+              <label for="firstName" class="form-label">First name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="firstName"
+                placeholder=""
+                value=""
+                required=""
+              />
+              <div class="invalid-feedback">Valid first name is required.</div>
+            </div>
+
+            <div class="col-sm-6">
+              <label for="lastName" class="form-label">Last name</label>
+              <input
+                type="text"
+                class="form-control"
+                id="lastName"
+                placeholder=""
+                value=""
+                required=""
+              />
+              <div class="invalid-feedback">Valid last name is required.</div>
+            </div>
+
+            <div class="col-12">
+              <label for="username" class="form-label">Username</label>
+              <div class="input-group has-validation">
+                <span class="input-group-text">@</span>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="username"
+                  placeholder="Username"
+                  required=""
+                />
+                <div class="invalid-feedback">Your username is required.</div>
+              </div>
+            </div>
+
+            <div class="col-12">
+              <label for="email" class="form-label"
+                >Email
+                <span class="text-body-secondary">(Optional)</span></label
+              >
+              <input
+                type="email"
+                class="form-control"
+                id="email"
+                placeholder="you@example.com"
+              />
+              <div class="invalid-feedback">
+                Please enter a valid email address for shipping updates.
+              </div>
+            </div>
+
+            <div class="col-12">
+              <label for="address" class="form-label">Address</label>
+              <input
+                type="text"
+                class="form-control"
+                id="address"
+                placeholder="1234 Main St"
+                required=""
+              />
+              <div class="invalid-feedback">
+                Please enter your shipping address.
+              </div>
+            </div>
+
+            <div class="col-12">
+              <label for="address2" class="form-label"
+                >Address 2
+                <span class="text-body-secondary">(Optional)</span></label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="address2"
+                placeholder="Apartment or suite"
+              />
+            </div>
+
+            <div class="col-md-5">
+              <label for="country" class="form-label">Country</label>
+              <select class="form-select" id="country" required="">
+                <option value="">Choose...</option>
+                <option>United States</option>
+              </select>
+              <div class="invalid-feedback">Please select a valid country.</div>
+            </div>
+
+            <div class="col-md-4">
+              <label for="state" class="form-label">State</label>
+              <select class="form-select" id="state" required="">
+                <option value="">Choose...</option>
+                <option>California</option>
+              </select>
+              <div class="invalid-feedback">Please provide a valid state.</div>
+            </div>
+
+            <div class="col-md-3">
+              <label for="zip" class="form-label">Zip</label>
+              <input
+                type="text"
+                class="form-control"
+                id="zip"
+                placeholder=""
+                required=""
+              />
+              <div class="invalid-feedback">Zip code required.</div>
+            </div>
+          </div>
+
+          <hr class="my-4" />
+
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="same-address" />
+            <label class="form-check-label" for="same-address"
+              >Shipping address is the same as my billing address</label
+            >
+          </div>
+
+          <div class="form-check">
+            <input type="checkbox" class="form-check-input" id="save-info" />
+            <label class="form-check-label" for="save-info"
+              >Save this information for next time</label
+            >
+          </div>
+
+          <hr class="my-4" />
+
+          <h4 class="mb-3">Payment</h4>
+
+          <div class="my-3">
+            <div class="form-check">
+              <input
+                id="credit"
+                name="paymentMethod"
+                type="radio"
+                class="form-check-input"
+                checked=""
+                required=""
+              />
+              <label class="form-check-label" for="credit">Credit card</label>
+            </div>
+            <div class="form-check">
+              <input
+                id="debit"
+                name="paymentMethod"
+                type="radio"
+                class="form-check-input"
+                required=""
+              />
+              <label class="form-check-label" for="debit">Debit card</label>
+            </div>
+            <div class="form-check">
+              <input
+                id="paypal"
+                name="paymentMethod"
+                type="radio"
+                class="form-check-input"
+                required=""
+              />
+              <label class="form-check-label" for="paypal">PayPal</label>
+            </div>
+          </div>
+
+          <div class="row gy-3">
+            <div class="col-md-6">
+              <label for="cc-name" class="form-label">Name on card</label>
+              <input
+                type="text"
+                class="form-control"
+                id="cc-name"
+                placeholder=""
+                required=""
+              />
+              <small class="text-body-secondary"
+                >Full name as displayed on card</small
+              >
+              <div class="invalid-feedback">Name on card is required</div>
+            </div>
+
+            <div class="col-md-6">
+              <label for="cc-number" class="form-label"
+                >Credit card number</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="cc-number"
+                placeholder=""
+                required=""
+              />
+              <div class="invalid-feedback">Credit card number is required</div>
+            </div>
+
+            <div class="col-md-3">
+              <label for="cc-expiration" class="form-label">Expiration</label>
+              <input
+                type="text"
+                class="form-control"
+                id="cc-expiration"
+                placeholder=""
+                required=""
+              />
+              <div class="invalid-feedback">Expiration date required</div>
+            </div>
+            <div class="col-md-3">
+              <label for="cc-cvv" class="form-label">CVV</label>
+              <input
+                type="text"
+                class="form-control"
+                id="cc-cvv"
+                placeholder=""
+                required=""
+              />
+              <div class="invalid-feedback">Security code required</div>
+            </div>
+          </div>
+          <hr class="my-4" />
+          <button class="w-100 btn btn-primary btn-lg" type="submit">
+            Continue to checkout
+          </button>
+        </form>
+      </div>
+    </div>
+    <div class="container">
+      <footer
+        class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top"
+      >
+        <div class="col-md-4 d-flex align-items-center">
+          <img
+            src="./photos/home photos/image.png"
+            alt="Wearly Logo"
+            width="100"
+            class="me-2 rounded-circle"
+          />
+          <span class="mb-3 mb-md-0 text-body-secondary"
+            >© 2025 Wearly, Inc</span
+          >
+        </div>
+
+        <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+          <li class="ms-3">
+            <a class="text-body-secondary" href="#" aria-label="Instagram">
+              <i class="bi bi-instagram fs-4"></i>
+            </a>
+          </li>
+          <li class="ms-3">
+            <a class="text-body-secondary" href="#" aria-label="Facebook">
+              <i class="bi bi-facebook fs-4"></i>
+            </a>
+          </li>
+        </ul>
+      </footer>
+    </div>
+  </body>
+</html>
