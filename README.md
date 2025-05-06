@@ -1,81 +1,72 @@
-Wearly Frontend
-This is the frontend code for Wearly, a clothing e-commerce platform. Built with HTML, CSS, and JavaScript, it uses Bootstrap for responsive design. The frontend integrates with multiple backend APIs to fetch and manage data for products, categories, user accounts, cart, and wishlist, creating a dynamic shopping experience.
-Code Structure
+# 👗 Wearly Frontend
 
-index.html: Homepage with category navigation, brand highlights, and API-driven content.
-men.html: Men’s clothing category page, populated with API data.
-women.html: Women’s clothing category page, updated via API calls.
-kids.html: Kids & Baby clothing category page, sourced from APIs.
-product.html: Product details page, dynamically loaded with API data.
-cart.html: Shopping cart page, syncing with backend APIs.
-login.html: User login page, posting to authentication API.
-Signup.html: User registration page, sending data to backend API.
-profile.html: User profile page, fetching and updating via API.
-photos/: Folder for product images and media, linked to API data.
-.vscode/: VS Code settings for development.
+Welcome to **Wearly**, a modern clothing e-commerce platform frontend!
 
-Technologies
+Built with **HTML, CSS, JavaScript, and Bootstrap**, it connects to a robust backend to deliver a fully dynamic shopping experience — from browsing products to managing carts, wishlists, and profiles.
 
-HTML5: Page structure and layout.
-CSS3: Custom styles with Bootstrap for responsiveness.
-JavaScript: Handles multiple API calls (GET/POST) using fetch API for data retrieval and updates.
-Bootstrap 5.3.4: Responsive grid, components, and icons.
-Bootstrap Icons: Icons for wishlist (heart), cart (bag), and profile (person).
+---
 
-API Integration
-The frontend communicates with multiple backend APIs (default at http://localhost:5107) for various functionalities:
+## 🌐 Live Demo
 
-Product APIs:
-GET /api/v1/products: Fetches all products for category pages (men.html, women.html, kids.html).
-GET /api/v1/products/{id}: Retrieves specific product details for product.html.
+🚀 **Try it live** (when deployed):  
+[🔗 Wearly Frontend Live](https://your-demo-link.com) *(Replace with your deployment URL)*
 
+---
 
-Category APIs:
-GET /api/v1/categories: Loads category data for navigation and filtering.
+## 🏗 Code Structure
 
+| File / Folder     | Description                                                            |
+|--------------------|------------------------------------------------------------------------|
+| `index.html`      | Homepage: category navigation, highlights, API-driven content.         |
+| `men.html`        | Men’s category page, populated via API.                               |
+| `women.html`      | Women’s category page, loaded dynamically.                           |
+| `kids.html`       | Kids/Baby category page, sourced from APIs.                          |
+| `product.html`    | Product details page with dynamic content.                           |
+| `cart.html`       | Shopping cart synced to backend.                                     |
+| `login.html`      | User login page, connected to authentication API.                    |
+| `signup.html`     | User signup page, posting registration data.                         |
+| `profile.html`    | User profile page, fetching and updating user data.                  |
+| `photos/`        | Product images and media assets.                                     |
+| `.vscode/`       | Development settings for VS Code.                                    |
 
-User Account APIs:
-POST /api/v1/accounts/register: Submits signup form data from Signup.html.
-POST /api/v1/accounts/login: Handles login form submission from login.html.
-GET /api/v1/accounts/status: Checks authentication status to update navbar (profile or login link).
-GET /api/v1/accounts/profile: Fetches user data for profile.html.
-POST /api/v1/accounts/logout: Logs out the user, clearing session.
+---
 
+## ⚙ Technologies Used
 
-Cart APIs:
-GET /api/v1/cart: Retrieves cart items for cart.html.
-POST /api/v1/cart/add: Adds items to the cart.
-POST /api/v1/cart/remove: Removes items from the cart.
+![HTML5](https://img.shields.io/badge/HTML5-orange?logo=html5)  
+![CSS3](https://img.shields.io/badge/CSS3-blue?logo=css3)  
+![JavaScript](https://img.shields.io/badge/JavaScript-yellow?logo=javascript)  
+![Bootstrap](https://img.shields.io/badge/Bootstrap-purple?logo=bootstrap)
 
+---
 
-Wishlist APIs:
-GET /api/v1/wishlist: Fetches wishlist items.
-POST /api/v1/wishlist/add: Adds products to the wishlist.
-POST /api/v1/wishlist/remove: Removes products from the wishlist.
+## 🔌 API Integration Overview
 
+| Feature        | Endpoint                                           |
+|---------------|-----------------------------------------------------|
+| **Products**  | `GET /api/v1/products`, `GET /api/v1/products/{id}` |
+| **Categories**| `GET /api/v1/categories`                            |
+| **Accounts**  | `POST /api/v1/accounts/register` <br> `POST /api/v1/accounts/login` <br> `GET /api/v1/accounts/profile` <br> `POST /api/v1/accounts/logout` |
+| **Cart**      | `GET /api/v1/cart` <br> `POST /api/v1/cart/add` <br> `POST /api/v1/cart/remove` |
+| **Wishlist**  | `GET /api/v1/wishlist` <br> `POST /api/v1/wishlist/add` <br> `POST /api/v1/wishlist/remove` |
 
-Implementation Details:
-Uses fetch API with credentials: 'include' to manage session cookies.
-Handles API responses in JavaScript to dynamically update DOM elements.
-Includes basic error handling (e.g., alerts for failed API calls).
+📖 **API Documentation** (backend): [View API Docs](https://github.com/omaaarsh/Wearly-Backend-Repo-Link) *(Replace with backend repo or docs link)*
 
+---
 
+## ✨ Interactive Features
 
-Setup
+✅ Dynamic product loading  
+✅ Live cart and wishlist updates  
+✅ User login/signup with session management  
+✅ Responsive Bootstrap layout  
+✅ Interactive icons (wishlist ❤️, cart 🛍, profile 👤)  
+✅ Real-time API error handling (alerts & UI updates)
 
-Clone the repo:git clone https://github.com/omaaarsh/Wearly-Clothing-ECommerce-front-end-.git
+---
 
+## 🛠 Setup Instructions
 
-Open index.html in a browser, or use a local server (e.g., VS Code Live Server) for API testing.
-Ensure the backend APIs are running at http://localhost:5107 for full functionality.
-Use browser dev tools (Network tab) to monitor API calls and responses.
-
-Features
-
-Responsive navbar with API-driven user status (profile or login link).
-Category pages (men.html, women.html, kids.html) populated with product data from APIs.
-Product details page (product.html) with dynamic API-sourced content.
-Cart and wishlist pages with real-time updates via API calls.
-Login/Signup forms posting data to backend APIs.
-Profile page fetching user data via API.
-
+### 1️⃣ Clone the repository
+```bash
+git clone https://github.com/omaaarsh/Wearly-Clothing-ECommerce-front-end-.git
