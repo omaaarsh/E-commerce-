@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wearly - Product Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-DQvkBjpPgn7RC31MCQoOeC9TI2kdqa4+BSgNMNj8v77fdC77Kj5zpWFTJaaAoMbC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/js/bootstrap.bundle.min.js" integrity="sha384-YUe2LzesAfftltw+PEaao2tjU/QATaW/rOitAq67e0CT0Zi2VVRL0oC4+gAaeBKu" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <style>
+        .navbar {
+            display: flex;
+            width: 90%;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-bottom: 1px solid #dee2e6;
+        }
+        .navbar .search {
+            display: flex;
+            min-width: 200px;
+            max-width: 300px;
+        }
+        img:hover {
+            transform: scale(1.09);
+            transition: transform 0.3s ease;
+        }
+        .card {
+            border: 0;
+            font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+            font-size: smaller;
+        }
+        .product-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+        }
+        .product-details {
+            font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+        }
+        .profile-link {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: #212529;
+        }
+        .profile-name {
+            font-size: 1rem;
+            font-weight: 500;
+            margin-left: 0.5rem;
+            text-transform: capitalize;
+        }
+        .size-select {
+            max-width: 200px;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="navbar">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand d-flex align-items-center" href="index.html">
+                    <img src="./photos/home photos/image.png" alt="Wearly Logo" height="100" class="rounded-circle me-2">
+                    <span class="fs-4">Wearly</span>
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="men.html">Men</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="women.html">Women</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="kids.html">Kids & Baby</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Categories
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Accessories</a></li>
+                                <li><a class="dropdown-item" href="#">New Arrivals</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" href="#">Sale</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div class="d-flex align-items-center ms-auto">
+                        <form class="d-flex me-3 search" role="search">
+                            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                        </form>
+                        <div id="authSection">
+                            <a href="login.html" class="d-flex align-items-center text-dark text-decoration-none" id="authLink">
+                                <i class="bi bi-person fs-4 me-2" id="authIcon"></i>
+                                <span class="btn btn-transparent" id="authText">Login</span>
+                            </a>
+                        </div>
+                        <a href="wishlist.html" class="me-3 text-dark">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                                <path d="m8 2.748-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143q.09.083.176.171a3 3 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15"/>
+                            </svg>
+                        </a>
+                        <a href="cart.html" class="me-3 text-dark">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-bag" viewBox="0 0 16 16">
+                                <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+    <!-- Product Details Section -->
+    <div class="container mt-5">
+        <div class="row" id="product-details">
+            <!-- Product details will be dynamically inserted here -->
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="container">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+            <div class="col-md-4 d-flex align-items-center">
+                <img src="./photos/home photos/image.png" alt="Wearly Logo" width="100" class="me-2" />
+                <span class="mb-3 mb-md-0 text-body-secondary">© 2025 Wearly, Inc</span>
+            </div>
+            <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+                <li class="ms-3">
+                    <a class="text-body-secondary" href="#" aria-label="Instagram">
+                        <i class="bi bi-instagram fs-4"></i>
+                    </a>
+                </li>
+                <li class="ms-3">
+                    <a class="text-body-secondary" href="#" aria-label="Facebook">
+                        <i class="bi bi-facebook fs-4"></i>
+                    </a>
+                </li>
+            </ul>
+        </footer>
+    </div>
+
+    <!-- JavaScript to Fetch and Display Product Details -->
+    <script>
+        async function fetchProductDetails() {
+            try {
+                // Get the product ID from the URL query parameter
+                console.log('URL Search:', window.location.search);
+                const urlParams = new URLSearchParams(window.location.search);
+                const productId = urlParams.get('id');
+
+                // Check for missing, undefined, or invalid ID
+                if (!productId || productId === 'undefined' || isNaN(productId)) {
+                    throw new Error('Invalid or missing Product ID');
+                }
+
+                const response = await fetch(`http://localhost:5107/api/v1/products/${productId}`);
+                if (!response.ok) {
+                    throw new Error(`Failed to fetch product details: ${response.statusText}`);
+                }
+
+                const product = await response.json();
+                console.log('Product Details:', product);
+                displayProductDetails(product);
+            } catch (error) {
+                console.error('Error fetching product details:', error);
+                document.getElementById('product-details').innerHTML = `
+                    <div class="col-12 text-center">
+                        <p class="text-danger">Unable to load product details. Please check the product ID or try again later.</p>
+                        <a href="men.html" class="btn btn-primary">Back to Products</a>
+                    </div>
+                `;
+            }
+        }
+
+        function displayProductDetails(product) {
+            const productDetailsContainer = document.getElementById('product-details');
+            productDetailsContainer.innerHTML = `
+                <div class="col-md-6">
+                    <img src="${product.image}" class="product-image" alt="${product.name}">
+                </div>
+                <div class="col-md-6 product-details">
+                    <h2>${product.name}</h2>
+                    <p class="fs-4 text-primary">${product.price} EGP</p>
+                    <p>${product.description || 'No description available.'}</p>
+                    <div class="mt-4">
+                        <select id="sizeSelect" class="form-select size-select" aria-label="Select size">
+                            <option value="" disabled selected>Select Size</option>
+                            <option value="S">Small (S)</option>
+                            <option value="M">Medium (M)</option>
+                            <option value="L">Large (L)</option>
+                            <option value="XL">Extra Large (XL)</option>
+                        </select>
+                        <div id="sizeError" class="alert alert-danger d-none mt-2" role="alert">
+                            Please select a size before adding to cart.
+                        </div>
+                        <a id="addToCartBtn" href="#" class="btn btn-outline-primary d-flex align-items-center justify-content-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-bag me-2" viewBox="0 0 16 16">
+                                <path d="M8 1a2.5 2.5 0 0 1 2.5 2.5V4h-5v-.5A2.5 2.5 0 0 1 8 1m3.5 3v-.5a3.5 3.5 0 1 0-7 0V4H1v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V4zM2 5h12v9a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1z"/>
+                            </svg>
+                            Add to Cart
+                        </a>
+                    </div>
+                </div>
+            `;
+
+            // Add event listener to the Add to Cart button
+            const addToCartBtn = document.getElementById('addToCartBtn');
+            const sizeSelect = document.getElementById('sizeSelect');
+            const sizeError = document.getElementById('sizeError');
+
+            addToCartBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const selectedSize = sizeSelect.value;
+                if (!selectedSize) {
+                    sizeError.classList.remove('d-none');
+                    return;
+                }
+                sizeError.classList.add('d-none');
+                window.location.href = `cart.html?id=${product.productID}&size=${selectedSize}`;
+            });
+        }
+
+        // Authentication handling for navbar
+        (async function () {
+            'use strict';
+
+            // Get elements for auth section
+            const authSection = document.getElementById('authSection');
+            const authLink = document.getElementById('authLink');
+            const authIcon = document.getElementById('authIcon');
+            const authText = document.getElementById('authText');
+
+            // Verify elements exist
+            if (!authLink || !authIcon || !authText) {
+                console.error('Auth elements not found in DOM');
+                return;
+            }
+
+            // Function to update navbar for logged-in user
+            function setLoggedInState(name) {
+                authLink.href = 'profile.html';
+                authLink.className = 'profile-link';
+                authIcon.className = 'bi bi-person-circle fs-4 me-2';
+                authText.className = 'profile-name';
+                authText.textContent = name || 'User';
+            }
+
+            // Function to update navbar for logged-out user
+            function setLoggedOutState() {
+                authLink.href = 'login.html';
+                authLink.className = 'd-flex align-items-center text-dark text-decoration-none';
+                authIcon.className = 'bi bi-person fs-4 me-2';
+                authText.className = 'btn btn-transparent';
+                authText.textContent = 'Login';
+            }
+
+            // Fetch authentication status
+            try {
+                const response = await fetch('http://localhost:5107/api/v1/accounts/status', {
+                    method: 'GET',
+                    credentials: 'include',
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
+
+                console.log('CheckAuth response status:', response.status);
+                console.log('CheckAuth response headers:', [...response.headers.entries()]);
+
+                if (!response.ok) {
+                    const errorText = await response.text();
+                    console.error('CheckAuth failed:', response.status, response.statusText, errorText);
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+
+                const data = await response.json();
+                console.log('CheckAuth response:', data);
+                console.log('isAuthenticated:', data.isAuthenticated);
+                console.log('name:', data.name);
+
+                if (data.isAuthenticated && data.name) {
+                    setLoggedInState(data.name);
+                } else {
+                    setLoggedOutState();
+                }
+            } catch (error) {
+                console.error('CheckAuth error:', error.message);
+                setLoggedOutState();
+            }
+        })();
+
+        // Fetch product details when the page loads
+        document.addEventListener('DOMContentLoaded', fetchProductDetails);
+    </script>
+</body>
+</html>

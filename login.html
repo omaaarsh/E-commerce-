@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wearly - Login</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-DQvkBjpPgn7RC31MCQoOeC9TI2kdqa4+BSgNMNj8v77fdC77Kj5zpWFTJaaAoMbC"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
+    />
+    <style>
+      .login-container {
+        max-width: 400px;
+        margin: 50px auto;
+        padding: 20px;
+        border: 1px solid #dee2e6;
+        border-radius: 8px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      }
+      .error-message {
+        color: #dc3545;
+        display: none;
+        margin-top: 10px;
+      }
+      body {
+        background-image: url('./photos/kids/a42892d4af7a7d3d7073f2e43cb15c9d.jpg');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        position: relative;
+        min-height: 100vh;
+      }
+      body::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(255, 255, 255, 0.5);
+        z-index: -1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="login-container">
+        <h2 class="text-center mb-4"> Welcome back </h2>
+        <form id="loginForm">
+          <div class="mb-3">
+            <label for="email" class="form-label">Email address</label>
+            <input
+              type="email"
+              class="form-control"
+              id="email"
+              name="email"
+              autocomplete="email"
+              required
+            />
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              name="password"
+              autocomplete="current-password"
+              required
+            />
+          </div>
+          <div class="mb-3 form-check">
+            <input
+              type="checkbox"
+              class="form-check-input"
+              id="rememberMe"
+              name="rememberMe"
+            />
+            <label class="form-check-label" for="rememberMe">Remember me</label>
+          </div>
+          <button type="submit" class="btn btn-primary w-100">Login</button>
+        </form>
+        <p id="errorMessage" class="error-message"></p>
+        <p class="text-center mt-3">
+          Don't have an account? <a href="signup.html">Sign up</a>
+        </p>
+      </div>
+    </div>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.4/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YUe2LzesAfftltw+PEaao2tjU/QATaW/rOitAq67e0CT0Zi2VVRL0oC4+gAaeBKu"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      (async function () {
+        'use strict';
+
+        const loginForm = document.getElementById('loginForm');
+        const errorMessage = document.getElementById('errorMessage');
+
+        if (!loginForm || !errorMessage) {
+          console.error('Form or error message element not found');
+          return;
+        }
+
+        loginForm.addEventListener('submit', async (event) => {
+          event.preventDefault();
+          errorMessage.style.display = 'none';
+
+          const email = document.getElementById('email').value;
+          const password = document.getElementById('password').value;
+          const rememberMe = document.getElementById('rememberMe').checked;
+
+          try {
+            // Login request
+            const loginResponse = await fetch('http://localhost:5107/api/v1/accounts/login', {
+              method: 'POST',
+              headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+              },
+              credentials: 'include',
+              body: JSON.stringify({ email, password, rememberMe })
+            });
+
+            console.log('Login response status:', loginResponse.status);
+            console.log('Login response headers:', [...loginResponse.headers.entries()]);
+            console.log('Set-Cookie header:', loginResponse.headers.get('set-cookie') || 'None');
+
+            if (!loginResponse.ok) {
+              const errorData = await loginResponse.json();
+              console.error('Login failed:', loginResponse.status, loginResponse.statusText, errorData);
+              throw new Error(errorData.message || 'Login failed');
+            }
+
+            const loginData = await loginResponse.json();
+            console.log('Login response:', loginData);
+            console.log('Cookies after login:', document.cookie);
+
+            // Verify authentication with CheckAuth
+            const checkAuthResponse = await fetch('http://localhost:5107/api/v1/accounts/status', {
+              method: 'GET',
+              headers: {
+                'Accept': 'application/json'
+              },
+              credentials: 'include'
+            });
+
+            console.log('CheckAuth response status:', checkAuthResponse);
+            console.log('CheckAuth response headers:', [...checkAuthResponse.headers.entries()]);
+
+            if (!checkAuthResponse.ok) {
+              const errorText = await checkAuthResponse.text();
+              console.error('CheckAuth failed:', checkAuthResponse.status, checkAuthResponse.statusText, errorText);
+              throw new Error('Failed to verify authentication');
+            }
+
+            const checkAuthData = await checkAuthResponse.json();
+            console.log('CheckAuth response:', checkAuthData);
+
+            if (!checkAuthData.isAuthenticated) {
+              console.warn('CheckAuth indicates user is not authenticated after login');
+              throw new Error('Authentication verification failed. Cookie may not be set.');
+            }
+
+            errorMessage.style.display = 'none';
+            window.location.href = 'index.html';
+          } catch (error) {
+            console.error('Login error:', error.message);
+            errorMessage.textContent = error.message || 'An error occurred. Please try again.';
+            errorMessage.style.display = 'block';
+          }
+        });
+      })();
+    </script>
+  </body>
+</html>
