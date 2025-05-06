@@ -9,7 +9,7 @@ Built with **HTML, CSS, JavaScript, and Bootstrap**, it connects to a robust bac
 ## 🌐 Live Demo
 
 🚀 **Try it live** (when deployed):  
-[🔗 Wearly Frontend Live](https://your-demo-link.com) *(Replace with your deployment URL)*
+[🔗 Wearly Frontend Live]([https://your-demo-link.com](https://omaaarsh.github.io/Wearly-Clothing-ECommerce-front-end-/)
 
 ---
 
